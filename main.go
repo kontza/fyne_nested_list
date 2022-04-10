@@ -102,8 +102,8 @@ func (ga *guiApp) createWindowAndRun() {
 	theApp := app.New()
 	appWindow := theApp.NewWindow("Add items")
 	items := make([]interface{}, len(ga.items))
-	for i, p := range ga.items {
-		items[i] = p
+	for i, e := range ga.items {
+		items[i] = e
 	}
 	ga.listBinding = binding.BindUntypedList(&items)
 	ga.listWidget = ga.widgetManager.createListWidget(ga.listBinding)
@@ -132,7 +132,20 @@ func (ga *guiApp) createWindowAndRun() {
 	if len(ga.items) > 0 {
 		ga.listWidget.Select(0)
 	}
+	log.Printf("Going in with %v", ga.items)
 	appWindow.ShowAndRun()
+	bound, _ := ga.listBinding.Get()
+	if cap(ga.items) > len(bound) {
+		log.Println("Decreasing")
+		ga.items = ga.items[:len(bound)]
+	} else if cap(ga.items) < len(bound) {
+		diff := len(bound) - cap(ga.items)
+		ga.items = append(ga.items, make([]listItem, diff)...)
+	}
+	for i, e := range bound {
+		ga.items[i] = e.(listItem)
+	}
+	log.Printf("Coming out with %v", ga.items)
 }
 
 func main() {
