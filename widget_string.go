@@ -8,23 +8,13 @@ func _() {
 	// An "invalid array index" compiler error signifies that the constant values have changed.
 	// Re-run the stringer command to generate them again.
 	var x [1]struct{}
-	_ = x[Log-0]
-	_ = x[NewerThan-1]
-	_ = x[ProfileName-2]
-	_ = x[SourcePath-3]
-	_ = x[Status-4]
-	_ = x[TargetPath-5]
-	_ = x[ItemAdd-6]
-	_ = x[ItemRemove-7]
-	_ = x[Settings-8]
-	_ = x[SourceSelection-9]
-	_ = x[Start-10]
-	_ = x[TargetSelection-11]
+	_ = x[ItemAdd-0]
+	_ = x[ItemRemove-1]
 }
 
-const _Widget_name = "LogNewerThanProfileNameSourcePathStatusTargetPathItemAddItemRemoveSettingsSourceSelectionStartTargetSelection"
+const _Widget_name = "ItemAddItemRemove"
 
-var _Widget_index = [...]uint8{0, 3, 12, 23, 33, 39, 49, 56, 66, 74, 89, 94, 109}
+var _Widget_index = [...]uint8{0, 7, 17}
 
 func (i Widget) String() string {
 	if i < 0 || i >= Widget(len(_Widget_index)-1) {

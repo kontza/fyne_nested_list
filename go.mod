@@ -2,6 +2,8 @@ module github.com/kontza/nested_list
 
 go 1.18
 
+replace fyne.io/fyne/v2 v2.1.4 => ../fyne
+
 require fyne.io/fyne/v2 v2.1.4
 
 require (

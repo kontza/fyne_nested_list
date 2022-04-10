@@ -33,11 +33,9 @@ type guiApp struct {
 	widgetManager        *WidgetManager
 }
 
-//go:generate stringer -type WidgetType
 //go:generate stringer -type Widget
 
 type Widget int64
-type WidgetType int64
 
 const (
 	ItemAdd Widget = iota
