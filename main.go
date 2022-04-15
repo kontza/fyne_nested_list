@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"reflect"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
@@ -106,6 +107,7 @@ func (ga *guiApp) createWindowAndRun() {
 		items[i] = e
 	}
 	ga.listBinding = binding.BindUntypedList(&items)
+	ga.listBinding.SetItemComparator(reflect.DeepEqual)
 	ga.listWidget = ga.widgetManager.createListWidget(ga.listBinding)
 
 	itemAdd := ga.widgetManager.createButton(ItemAdd)
